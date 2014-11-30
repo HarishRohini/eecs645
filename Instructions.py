@@ -1,5 +1,6 @@
 __author__ = 'harishrohini'
 from src.instructiontypes.Load import Load
+from src.instructiontypes.Mul import Mul
 from src.Memory import Memory
 from src.Registers import Registers
 
@@ -29,6 +30,8 @@ class Instructions:
                 self.instructions_object_list.append(instruction_object)
                 #print "load : ", test.test(instruction)
             elif operation_type[0] == 'MUL.D':
+                instruction_object = Mul(instruction)
+                self.instructions_object_list.append(instruction_object)
                 print "Mul  : ", instruction
             elif operation_type[0] == 'S.D':
                 print "Store: ", instruction
