@@ -16,7 +16,7 @@ class ReadContents:
         for index in registers_data:
             regs = index.split()
             #print regs
-            self.registers.r[regs[0]]['contents'] = regs[1]
+            Registers.r[regs[0]]['contents'] = regs[1]
         #print self.registers.r
 
     def read_fpregisters(self, data):
@@ -24,7 +24,7 @@ class ReadContents:
         for index in registers_data:
             regs = index.split()
             #print regs
-            self.registers.f[regs[0]]['contents'] = regs[1]
+            Registers.f[regs[0]]['contents'] = regs[1]
         #print self.registers.f
 
     def read_memory(self, data):
