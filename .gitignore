@@ -1,1 +1,3 @@
 *.pyc
+instructionstages/*.pyc
+instructiontypes/*.pyc
