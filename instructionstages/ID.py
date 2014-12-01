@@ -20,9 +20,9 @@ class ID:
                 #pass
             else:
                 register = self.find_dependent_register()
-                is_used, is_mul = self.find_dependency(register)
+                is_used, is_mul, is_add = self.find_dependency(register)
                 if is_used is True:
-                    if is_mul:
+                    if is_mul or is_add:
                         execution_status = True
                     else:
                         execution_status = False
@@ -43,7 +43,7 @@ class ID:
                     execution_status = True
                     Registers.r[register]['used'] = True
             """
-        else:
+        elif instruction[0] == 'MUL.D':
             print "MUL ISNG"
             registers = self.find_registers()
             status = self.is_used(registers[1:])
@@ -55,6 +55,17 @@ class ID:
             else:
                 execution_status = False
             #pass
+        else:
+            print "ADD ISNG"
+            registers = self.find_registers()
+            status = self.is_used(registers[1:])
+            #is_mul_status = self.is_used_mul(registers)
+            print registers
+            if status:
+                Registers.f[registers[0]]['used'] = True
+                execution_status = True
+            else:
+                execution_status = False
         return execution_status
 
     def find_register(self):
@@ -92,4 +103,4 @@ class ID:
         return self.inst.replace(",", "").split()[2]
 
     def find_dependency(self, register):
-        return Registers.f[register]['used'], Registers.f[register]['is_mul']
+        return Registers.f[register]['used'], Registers.f[register]['is_mul'], Registers.f[register]['is_add']

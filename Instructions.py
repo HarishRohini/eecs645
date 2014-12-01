@@ -2,6 +2,8 @@ __author__ = 'harishrohini'
 from src.instructiontypes.Load import Load
 from src.instructiontypes.Store import Store
 from src.instructiontypes.Mul import Mul
+from src.instructiontypes.Add import Add
+from src.instructiontypes.Sub import Sub
 from src.Memory import Memory
 from src.Registers import Registers
 
@@ -10,8 +12,8 @@ class Instructions:
     def __init__(self):
         self.instructions = []
         self.instructions_object_list = []
-        self.memory = Memory()
-        self.registers = Registers()
+        #self.memory = Memory()
+        #self.registers = Registers()
         self.completed_instructions = []
         self.instructions_queue = [0]
 
@@ -39,8 +41,12 @@ class Instructions:
                 self.instructions_object_list.append(instruction_object)
                 print "Store: ", instruction
             elif operation_type[0] == 'ADD.D':
+                instruction_object = Add(instruction)
+                self.instructions_object_list.append(instruction_object)
                 print "Add  : ", instruction
             else:
+                instruction_object = Sub(instruction)
+                self.instructions_object_list.append(instruction_object)
                 print "Other"
         print self.instructions_object_list
             #self.instructions_object_list.append(instruction_object)

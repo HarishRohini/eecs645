@@ -13,3 +13,6 @@ class MEM:
         else:
             Registers.f[register[1]]['used'] = False
             Registers.f[register[1]]['is_store'] = False
+
+    def execute(self):
+        pass
