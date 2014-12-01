@@ -33,6 +33,7 @@ def start_execution(options):
     #print clock.start_clock()
     print clock.clock
     clock.next_instruction()
+    print "log : ", Registers.f['F1'], Registers.f['F2']
     #clock.next_instruction()
     #instructions = Instructions()
     #instructions.parse(f.read())

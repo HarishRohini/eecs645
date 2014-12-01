@@ -12,7 +12,7 @@ class Load:
         self.IF = IF()
         self.ID = ID(self.inst)
         self.EX = EX()
-        self.MEM = MEM()
+        self.MEM = MEM(self.inst)
         self.WB = WB(self.inst)
         self.execution_order = ['IF', 'ID', 'EX', 'MEM', 'WB']
         self.execution_status = {'IF': False, 'ID': False, 'EX': False, 'MEM': False, 'WB': False}
@@ -40,11 +40,12 @@ class Load:
                     self.execution_status[i] = True
                     next_stage = i
                 elif i == 'MEM':
+                    self.MEM.execute_stage()
                     self.execution_status[i] = True
                     next_stage = i
                 else:
                     self.execution_status[i] = True
-                    self.WB.execute_writeback()
+                    #self.WB.execute_writeback()
                     completed = True
                     next_stage = i
                 break
