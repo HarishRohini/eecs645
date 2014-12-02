@@ -37,3 +37,10 @@ class Writer:
             f.write("\n")
         f.close()
 
+    def write_to_file_registers(self):
+        register_file = raw_input("Enter register file : ")
+        f = open(register_file, 'w')
+        for i in self.registers:
+            if self.registers[i]['contents'] != 0:
+                f.write(i + '\t' + str(self.registers[i]['contents']) + '\n')
+        f.close()

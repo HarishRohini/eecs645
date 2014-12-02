@@ -37,6 +37,7 @@ def start_execution(options):
     print "log : ", Registers.f['F4']['contents']
     writer = Writer(clock.clock_execution_dict, Registers.f, len(instructions.instructions_object_list))
     writer.write_to_file()
+    writer.write_to_file_registers()
     #clock.next_instruction()
     #instructions = Instructions()
     #instructions.parse(f.read())
