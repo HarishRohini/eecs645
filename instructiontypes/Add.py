@@ -56,6 +56,7 @@ class Add:
                 elif i == 'A4':
                     self.execution_status[i] = True
                     self.A4.execute_stage()
+                    self.A4.execute()
                     next_stage = i
                 elif i == 'MEM':
                     self.execution_status[i] = True

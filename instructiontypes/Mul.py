@@ -71,6 +71,7 @@ class Mul:
                 elif i == 'M7':
                     self.execution_status[i] = True
                     self.M7.execute_stage()
+                    self.M7.execute()
                     next_stage = i
                 elif i == 'MEM':
                     self.execution_status[i] = True

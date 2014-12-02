@@ -42,6 +42,7 @@ class Store:
                 elif i == 'MEM':
                     #self.MEM(self.inst)
                     self.execution_status[i] = True
+                    self.MEM.execute()
                     next_stage = i
                 else:
                     self.execution_status[i] = True
