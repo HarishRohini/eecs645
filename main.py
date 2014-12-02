@@ -28,13 +28,13 @@ def start_execution(options):
     #print instructions.get_instructions(), '\n', registers.r['R2'], '\n', memory.location, '\n', registers.f
     instructions.build_instruction_objects()
     #print instructions.instructions_object_list
-    print "In main file : ", id(memory), id(registers), id(instructions)
+    #print "In main file : ", id(memory), id(registers), id(instructions)
     clock = Clock(instructions)
     #clock.print_object_ids()
     #print clock.start_clock()
-    print clock.clock
+    #print clock.clock
     clock.next_instruction()
-    print "log : ", Registers.f['F4']['contents']
+    #print "log : ", Registers.f['F4']['contents']
     writer = Writer(clock.clock_execution_dict, Registers.f, len(instructions.instructions_object_list))
     writer.write_to_file()
     writer.write_to_file_registers()

@@ -35,32 +35,32 @@ class Instructions:
             elif operation_type[0] == 'MUL.D':
                 instruction_object = Mul(instruction)
                 self.instructions_object_list.append(instruction_object)
-                print "Mul  : ", instruction
+                #print "Mul  : ", instruction
             elif operation_type[0] == 'S.D':
                 instruction_object = Store(instruction)
                 self.instructions_object_list.append(instruction_object)
-                print "Store: ", instruction
+                #print "Store: ", instruction
             elif operation_type[0] == 'ADD.D':
                 instruction_object = Add(instruction)
                 self.instructions_object_list.append(instruction_object)
-                print "Add  : ", instruction
+                #print "Add  : ", instruction
             else:
                 instruction_object = Sub(instruction)
                 self.instructions_object_list.append(instruction_object)
-                print "Other"
-        print self.instructions_object_list
+                #print "Other"
+        #print self.instructions_object_list
             #self.instructions_object_list.append(instruction_object)
 
     def next_instruction(self):
         pass
 
     def execute_next_instruction(self, clock, clock_execution_dict):
-        print "Instruction queue : ", self.instructions_queue, "clock cycle : ", clock
+        #print "Instruction queue : ", self.instructions_queue, "clock cycle : ", clock
         for index in self.instructions_queue:
             if index not in self.completed_instructions:
-                print "index : ", index, "completed inst : ",self.completed_instructions
+                #print "index : ", index, "completed inst : ",self.completed_instructions
                 clock_execution_dict, completed, start_next_instruction = self.instructions_object_list[index].next_execution_stage(clock, clock_execution_dict, index)
-                print "clock_execution_dict", clock_execution_dict, "completed : ", completed
+                #print "clock_execution_dict", clock_execution_dict, "completed : ", completed
                 if completed:
                     #self.instructions_queue.remove(index)
                     self.completed_instructions.append(index)
