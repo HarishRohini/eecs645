@@ -1,6 +1,9 @@
 __author__ = 'harishrohini'
 import sys
-sys.path.append('/Users/harishrohini/PycharmProjects/EECS645/')
+import os
+#print os.getcwd()
+#sys.path.append(os.getcwd()+'')
+#sys.path.append('/Users/harishrohini/PycharmProjects/EECS645/')
 from optparse import OptionParser
 from src.ReadContents import ReadContents
 from src.Instructions import Instructions
@@ -11,7 +14,7 @@ from Clock import Clock
 
 
 def start_execution(options):
-    f = open(options.files, 'r')
+    f = open(options.file, 'r')
     content = f.read()
     read_content = ReadContents()
     instructions = Instructions()
@@ -45,15 +48,15 @@ def start_execution(options):
 
 
 def main():
-    usage = "usage: %prog [options]"
+    usage = "usage: python main.py -f filename"
     parser = OptionParser(usage=usage)
-    parser.add_option("-f", "--files", action="store", type="string", help="filename")
+    parser.add_option("-f", "--file", action="store", type="string", help="filename")
 
     (options, args) = parser.parse_args()
 
-    if not options.files:
+    if not options.file:
         sys.stderr.write("Specify an input file\n")
-        sys.stderr.write("Type '%s --help' for usage.\n" % sys.argv[0])
+        sys.stderr.write("Type python main.py --help' for usage.\n")
         sys.exit()
     else:
         start_execution(options)
