@@ -4,7 +4,7 @@ sys.path.append('/Users/harishrohini/PycharmProjects/EECS645/')
 from optparse import OptionParser
 from src.ReadContents import ReadContents
 from src.Instructions import Instructions
-#from FPOperations import *
+from src.Writer import Writer
 from src.Registers import Registers
 from src.Memory import Memory
 from Clock import Clock
@@ -35,6 +35,8 @@ def start_execution(options):
     print clock.clock
     clock.next_instruction()
     print "log : ", Registers.f['F4']['contents']
+    writer = Writer(clock.clock_execution_dict, Registers.f, len(instructions.instructions_object_list))
+    writer.write_to_file()
     #clock.next_instruction()
     #instructions = Instructions()
     #instructions.parse(f.read())
