@@ -23,7 +23,7 @@ class MEM:
             r_register = inst[1][:-1]
             l_register = instruction[1]
             Registers.f[l_register]['contents'] = Memory.location[str(int(Registers.r[r_register]['contents']) + int(offset))]
-            print Registers.f[l_register]['contents']
+            #print Registers.f[l_register]['contents']
             #print result
         else:
             inst = instruction[1].split("(")
@@ -32,4 +32,4 @@ class MEM:
             r_register = instruction[2]
             Memory.location[str(int(Registers.r[l_register]['contents']) + int(offset))] = Registers.f[r_register]['contents']
 
-            print Memory.location['16']
+            #print Memory.location['16']

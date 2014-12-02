@@ -23,7 +23,7 @@ class Sub:
         self.execution_order = ['IF', 'ID', 'A1', 'A2', 'A3', 'A4', 'MEM', 'WB']
         self.execution_status = {'IF': False, 'ID': False, 'A1': False, 'A2': False, 'A3': False,
                                  'A4': False, 'MEM': False, 'WB': False}
-        print "In Multiply class : ", inst
+        #print "In Multiply class : ", inst
 
     def next_execution_stage(self, clock, clock_execution_dict, instruction_index):
         completed = False

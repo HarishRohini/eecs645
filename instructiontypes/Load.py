@@ -16,10 +16,10 @@ class Load:
         self.WB = WB(self.inst)
         self.execution_order = ['IF', 'ID', 'EX', 'MEM', 'WB']
         self.execution_status = {'IF': False, 'ID': False, 'EX': False, 'MEM': False, 'WB': False}
-        print "in Load class : ", inst
+        #print "in Load class : ", inst
 
     def next_execution_stage(self, clock, clock_execution_dict, instruction_index):
-        print self.inst
+        #print self.inst
         completed = False
         start_next_instruction = False
         next_stage = ''

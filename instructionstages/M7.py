@@ -13,6 +13,6 @@ class M7:
 
     def execute(self):
         instruction = self.inst.replace(",", "").split()
-        print instruction
+        #print instruction
         Registers.f[instruction[1]]['contents'] = str(float(Registers.f[instruction[2]]['contents']) * float(Registers.f[instruction[3]]['contents']))
-        print Registers.f[instruction[1]]['contents']
+        #print Registers.f[instruction[1]]['contents']

@@ -7,7 +7,7 @@ class ID:
         self.inst = inst
 
     def decode_instruction(self):
-        print "In decode stage : ", self.inst
+        #print "In decode stage : ", self.inst
         execution_status = False
         #register = self.inst.split()[1].split(',')[0]
         instruction = self.inst.split()
@@ -44,11 +44,11 @@ class ID:
                     Registers.r[register]['used'] = True
             """
         elif instruction[0] == 'MUL.D':
-            print "MUL ISNG"
+            #print "MUL ISNG"
             registers = self.find_registers()
             status = self.is_used(registers[1:])
             #is_mul_status = self.is_used_mul(registers)
-            print registers
+            #print registers
             if status:
                 Registers.f[registers[0]]['used'] = True
                 execution_status = True
@@ -56,11 +56,11 @@ class ID:
                 execution_status = False
             #pass
         else:
-            print "ADD ISNG"
+            #print "ADD ISNG"
             registers = self.find_registers()
             status = self.is_used(registers[1:])
             #is_mul_status = self.is_used_mul(registers)
-            print registers
+            #print registers
             if status:
                 Registers.f[registers[0]]['used'] = True
                 execution_status = True

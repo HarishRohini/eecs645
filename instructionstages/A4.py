@@ -12,10 +12,10 @@ class A4:
 
     def execute(self):
         instruction = self.inst.replace(",", "").split()
-        print instruction
+        #print instruction
         if instruction[0] == 'ADD.D':
             Registers.f[instruction[1]]['contents'] = str(float(Registers.f[instruction[2]]['contents']) + float(Registers.f[instruction[3]]['contents']))
-            print Registers.f[instruction[1]]['contents']
+            #print Registers.f[instruction[1]]['contents']
         else:
             Registers.f[instruction[1]]['contents'] = str(float(Registers.f[instruction[2]]['contents']) - float(Registers.f[instruction[3]]['contents']))
-            print Registers.f[instruction[1]]['contents']
+            #print Registers.f[instruction[1]]['contents']
