@@ -1,14 +1,14 @@
 __author__ = 'harishrohini'
 from Instructions import Instructions
-from Registers import Registers
-from Memory import Memory
+from src.Registers import Registers
+from src.Memory import Memory
 
 
 class ReadContents:
     def __init__(self):
         self.instructions = Instructions()
-        self.registers = Registers()
-        self.memory = Memory()
+        #self.registers = Registers()
+        #self.memory = Memory()
 
     def read_iregisters(self, data):
         registers_data = data[data.find('I-REGISTERS')+len('I-REGISTERS')+1:data.find('FP-REGISTERS')].splitlines()
@@ -33,20 +33,20 @@ class ReadContents:
         for index in memory_data:
             regs = index.split()
             #print regs
-            self.memory.location[regs[0]] = regs[1]
+            Memory.location[regs[0]] = regs[1]
         #print self.memory.location
 
     def get_instructions(self, data):
         start = data.find('CODE')
         code = data[start+5:]
         self.instructions.instructions = code.splitlines()
-        self.instructions.memory = self.memory
-        self.instructions.registers = self.registers
+        #self.instructions.memory = self.memory
+        #self.instructions.registers = self.registers
         #print self.instructions
 
     def return_attrs(self):
         #print "id : ", id(self.instructions)
-        return self.instructions, self.registers, self.memory
+        return self.instructions#, self.registers, self.memory
 
 if __name__ == '__main__':
     a = ReadContents()

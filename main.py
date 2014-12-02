@@ -5,8 +5,8 @@ from optparse import OptionParser
 from src.ReadContents import ReadContents
 from src.Instructions import Instructions
 #from FPOperations import *
-from Registers import Registers
-from Memory import Memory
+from src.Registers import Registers
+from src.Memory import Memory
 from Clock import Clock
 
 
@@ -22,8 +22,9 @@ def start_execution(options):
     read_content.read_fpregisters(content)
     read_content.read_memory(content)
     read_content.get_instructions(content)
-    instructions, registers, memory = read_content.return_attrs()
-    print "registers: ", id(registers), " Inst : ", id(instructions.registers), id(memory), id(instructions.memory)
+    #instructions, registers, memory = read_content.return_attrs()
+    instructions = read_content.return_attrs()
+    #print "registers: ", id(registers), " Inst : ", id(instructions.registers), id(memory), id(instructions.memory)
     #print instructions.get_instructions(), '\n', registers.r['R2'], '\n', memory.location, '\n', registers.f
     instructions.build_instruction_objects()
     #print instructions.instructions_object_list
@@ -33,7 +34,7 @@ def start_execution(options):
     #print clock.start_clock()
     print clock.clock
     clock.next_instruction()
-    print "log : ", Registers.f['F1'], Registers.f['F2']
+    print "log : ", Registers.r['R2'], Registers.f['F2']
     #clock.next_instruction()
     #instructions = Instructions()
     #instructions.parse(f.read())
